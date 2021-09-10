@@ -1,6 +1,9 @@
 # Hummingbird
 Hummingbird dataset and code for EMNLP 2021 paper "Does BERT Learn as Humans Perceive? Understanding Linguistic Styles through Lexica"
 
+
+<img src="human_vs_bert.png" width="400">
+
 ## Hummingbird Dataset
 Dataset is under ``data/hummingbird`` folder. It contains annotated texts for all the eight styles (politeness, sentiment, anger, disgust, fear, joy, and sadness).
 
