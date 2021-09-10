@@ -31,13 +31,13 @@ These existing datasets are extracted from the following previous works:
 |  Emotion |  SemEval 2018| [link](https://competitions.codalab.org/competitions/17751#learn_the_details-datasets) |
 
 ## Code
-All of our codes for processing the dataset are available here.
+All of our codes for processing the dataset will be available here. 
 
 ## BibTex
 ```
 # coding=utf-8
 
-@InProceedings{hayati2021,
+@InProceedings{hayati-etal-2021hummingbird,
   author = 	"Hayati, Shirley Anugrah
 		and Kang, Dongyeop
 		and Ungar, Lyle",
