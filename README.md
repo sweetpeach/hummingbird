@@ -16,6 +16,12 @@ Below is the explanation of each column
 * ``processed_text`` = text after preprocessing (lower case and removal of some punctuations)
 * ``perception_scores``	= human's perception label for the tokens in processed_text
 
+Example aggregation of the whole dataset can be seen in ``hummingbird_data.html``. Blocked text means 3 people agree, blue/red text means 2 people agree, gray text means only 1 person annotate the word as important stylistic cue. 
+
+### token_avg
+This directory contains a list of words for each style with their corresponding count (``count``), average perception scores (``avg_attr``), and their
+standard deviation (``std_attr``). Ignore the last column (``avg_pred``).
+
 ## A Subset of Existing Datasets
 A subset of benchmarking dataset is under `data/orig` folder. It has word importance scores from Captum. 
 * ``pred_class`` = predicted label, 
@@ -28,13 +34,33 @@ A subset of benchmarking dataset is under `data/orig` folder. It has word import
 These existing datasets are extracted from the following previous works:
 | Style | Name | Link |
 | :---: | :---: | :---: |
-| Politeness | Stanford Politeness | [link](https://www.cs.cornell.edu/~cristian/Politeness.html) |
-| Sentiment  |  Sentiment Treebank | [link](https://nlp.stanford.edu/sentiment/treebank.html) |
-| Offensiveness |  Tweet Datasets for Hate Speech and Offensiveness | [link](https://github.com/t-davidson/hate-speech-and-offensive-language) |
+| Politeness | StanfordPoliteness | [link](https://www.cs.cornell.edu/~cristian/Politeness.html) |
+| Sentiment  |  SentiTreeBank | [link](https://nlp.stanford.edu/sentiment/treebank.html) |
+| Offensiveness |  Tweet Datasets for Hate Speech and Offensiveness (HateOffensive)| [link](https://github.com/t-davidson/hate-speech-and-offensive-language) |
 |  Emotion |  SemEval 2018| [link](https://competitions.codalab.org/competitions/17751#learn_the_details-datasets) |
 
+### token_avg
+This directory contains a list of words for each style with their corresponding count (``count``), average attribution scores (``avg_attr``), their
+standard deviation (``std_attr``), and average prediction probability - if it's closer to one then the label is more positive/polite/higher emotion, etc. (``avg_pred``).
+
 ## Code
-All of our codes for processing the dataset will be available here. 
+* ``extract_tokens_from_bert_data.py``: code for aggregating BERT's tokenized tokens and create the ``[style]_features.tsv`` file for analysis. 
+
+### model
+* ``training.py``: code for training the model
+  * Example command for running the code for joy emotion: 
+  
+  ``python training.py --input_dir ../dataset/emotion_semeval/joy --task_name emotion --output_dir ../model/joy  --temp_dir tmp_out/new_tmp_joy``
+  
+* ``captum_label.py``: code for testing the model and obtaining word importance scores (attribution scores). 
+   * Example command for running the code for joy emotion: 
+  
+  ``python captum_label.py --data_dir ../dataset/emotion_semeval/joy --model_type bert --emotion joy --do_eval --do_interpret --do_lower_case --model_name_or_path ../model/joy --output_dir ../model/joy --eval_dataset ../dataset/emotion_semeval/joy/dev.tsv``
+
+  * Example command for running the code for politeness: 
+  
+  ``python captum_label.py --data_dir ../dataset/StanfordPoliteness/ --model_type bert --task StanfordPoliteness --do_eval --do_interpret --do_lower_case --model_name_or_path ../model/politeness --output_dir ../model/politeness --eval_dataset ../dataset/StanfordPoliteness/dev.tsv``
+
 
 ## BibTex
 ```
