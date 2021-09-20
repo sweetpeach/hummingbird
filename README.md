@@ -39,6 +39,8 @@ These existing datasets are extracted from the following previous works:
 | Offensiveness |  Tweet Datasets for Hate Speech and Offensiveness (HateOffensive)| [link](https://github.com/t-davidson/hate-speech-and-offensive-language) |
 |  Emotion |  SemEval 2018| [link](https://competitions.codalab.org/competitions/17751#learn_the_details-datasets) |
 
+Download these datasets which have been preprocessed [here](https://gtvault-my.sharepoint.com/:f:/g/personal/shayati3_gatech_edu/EmtQrOUbN_tKj1GVCxC3G8cBjRyHQmCZPD6rQf5a77RT5g?e=VxQdAc)! 
+
 ### token_avg
 This directory contains a list of words for each style with their corresponding count (``count``), average attribution scores (``avg_attr``), their
 standard deviation (``std_attr``), and average prediction probability - if it's closer to one then the label is more positive/polite/higher emotion, etc. (``avg_pred``).
