@@ -1,5 +1,5 @@
 # Hummingbird
-Hummingbird dataset and code for EMNLP 2021 paper "Does BERT Learn as Humans Perceive? Understanding Linguistic Styles through Lexica"
+Hummingbird dataset and code for EMNLP 2021 paper ["Does BERT Learn as Humans Perceive? Understanding Linguistic Styles through Lexica"](https://aclanthology.org/2021.emnlp-main.510.pdf)
 
 
 <img src="human_vs_bert.png" width="400">
